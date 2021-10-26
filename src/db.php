@@ -23,19 +23,19 @@ class Database
     }
 
     public function getStudent($student_id) {
-        $sQuery = "SELECT id, grade1, grade2, grade3, grade4, sb_type FROM student WHERE id = $student_id";
+        $sQuery = "SELECT * FROM student WHERE id = $student_id";
 
         $q = $this->conn->query($sQuery);
         if ($q == null) {
             die("Error: " . $this->conn->error);
         }
 
-        $rows = array();
-        while ($qTmp = $q->fetch_assoc()) {
-            $rows[] = $qTmp;
+        $res = '';
+        if ($qTmp = $q->fetch_assoc()) {
+            $res = $qTmp;
         }
         mysqli_free_result($q);
-        return $rows;
+        return $res;
     }
     
     /**

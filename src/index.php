@@ -10,7 +10,7 @@ class SchoolBoard {
     // Private declarations
     //
     private $db;
-    private $student_id;      // JSON input data
+    private $student_id;
 
     // Constructor
     public function __construct($student_id) {
@@ -28,11 +28,39 @@ class SchoolBoard {
     public function calc() {
         $student = $this->db->getStudent($this->student_id);
         print_r($student);
+        $sb_type = $student[sb_type];
+        $grades = array($student[grade1], $student[grade2], $student[grade3], $student[grade4]);
+        $sum = 0;
+        $num = 0;
+        if ($sb_type == "CSM") {
+            for($i = 0; $i < count($grades); $i++) {
+                if ($grades[$i] > 0) {
+                    $sum += $grades[$i];
+                    $num++;
+                }
+            }
+        }
+        else if ($sb_type == "CSMB") {
+            for($i = 0; $i < count($grades); $i++) {
+                if ($grades[$i] > 0) {
+                    $sum += $grades[$i];
+                    $num++;
+                }
+            }
+            if ($num > 1) {
+                $sum -= min($grades);
+                $num--;
+            }
+        }
+        else {
+            die("Bad School board type");
+        }
+        $avg = $sum / $num;
+        echo "Avg: $avg<br>";
     }
 
 };
 
-// print_r($_GET);
 $student_id = $_GET['student'];
 if (!$student_id) {
     die('No student id given');
