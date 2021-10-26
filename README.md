@@ -21,11 +21,8 @@ Each school board can have a different rule to calculate if he has passed or not
 It returns report of student with ID of 1 for example, with the fields provided above.
 
 # database.inc format: #
-<?php
 
-    const C_DB_Host = "host_name";
-    const C_DB_User = "user";
-    const C_DB_Pass = "pass";
-    const C_DB_Name = "school_board";
-
-?>
+const C_DB_Host = "host_name";
+const C_DB_User = "user";
+const C_DB_Pass = "pass";
+const C_DB_Name = "school_board";
