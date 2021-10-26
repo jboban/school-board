@@ -27,4 +27,6 @@ CREATE TABLE IF NOT EXISTS `student` (
 
 INSERT INTO `student` (`id`, `name`, `grade1`, `grade2`, `grade3`, `grade4`, `sb_type`) VALUES
 (1, 'Luka', 10, 6, 8, 7, 'CSM'),
-(2, 'Milos', 6, 9, 9, 10, 'CSMB');
+(2, 'Milos', 6, 9, 9, 10, 'CSMB'),
+(3, 'Aleksa', 6, 7, 7, 8, 'CSMB'),
+(4, 'Boban', 8, 6, NULL, NULL, 'CSMB');
